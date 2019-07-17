@@ -10,39 +10,39 @@ import java.util.*;
 
 //link para o console: http://localhost:8080/h2-console
 @RestController
-public class Controller {
+@RequestMapping("/funcionarios")
+public class FuncionarioController {
 
     @Autowired
     private FuncionarioService funcionarioService;
 
-    @GetMapping("/funcionario")
+    @GetMapping
     public List<Funcionario> returnAquisition() {
         return funcionarioService.findAllFuncionarios();
 
     }
 
-    @DeleteMapping("/funcionario/{id}")
+    @DeleteMapping("/{id}")
     public String deletaFuncionario(@PathVariable long id){
         return funcionarioService.deletaFunc(id);
     }
 
-    @GetMapping("/funcionario/{id}")
+    @GetMapping("/{id}")
     public Optional<Funcionario> buscaFuncionario(@PathVariable long id){
         return funcionarioService.buscaFuncionario(id);
     }
 
-    @GetMapping("")
-    public String homePage() {
-        return "homePage";
-    }
+//    @GetMapping("")
+//    public String homePage() {
+//        return "homePage";
+//    }
 
 
-    @PostMapping("/funcionario")
+    @PostMapping
     public String salvaFunc (@RequestBody @Valid Funcionario func) {
         return funcionarioService.salvaFunc(func);
 
     }
-
 }
 
 
