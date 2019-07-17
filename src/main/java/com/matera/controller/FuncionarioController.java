@@ -10,8 +10,8 @@ import java.util.*;
 
 //link para o console: http://localhost:8080/h2-console
 @RestController
-@RequestMapping("/funcionario")
-public class Controller {
+@RequestMapping("/funcionarios")
+public class FuncionarioController {
 
     @Autowired
     private FuncionarioService funcionarioService;
@@ -32,10 +32,10 @@ public class Controller {
         return funcionarioService.buscaFuncionario(id);
     }
 
-    @GetMapping("")
-    public String homePage() {
-        return "homePage";
-    }
+//    @GetMapping("")
+//    public String homePage() {
+//        return "homePage";
+//    }
 
 
     @PostMapping
@@ -43,7 +43,6 @@ public class Controller {
         return funcionarioService.salvaFunc(func);
 
     }
-
 }
 
 
