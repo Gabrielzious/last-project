@@ -7,25 +7,11 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
-@Entity
 public class Funcionario {
-
-
-    @Id
-    @GeneratedValue
-
     private long id;
-    @NotNull(message="nome não pode ser vazio")
     private String nome;
-
-    @NotNull(message="idade não pode ser vazia")
     private int idade;
-
-    @Email(message = "Email deve ser valido")
-    @NotNull(message="email não pode ser vazio")
-    @NotEmpty(message="email não pode ser vazio")
     private String email;
-
 
     public Funcionario() {
     }
@@ -34,9 +20,6 @@ public class Funcionario {
         this.nome = nome;
         this.idade= idade;
         this.email=email;
-
-
-
     }
 
 

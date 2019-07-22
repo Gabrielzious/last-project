@@ -14,35 +14,22 @@ import java.util.*;
 public class FuncionarioController {
 
     @Autowired
-    private FuncionarioService funcionarioService;
+    FuncionarioService funcionarioService;
 
-    @GetMapping
-    public List<Funcionario> returnAquisition() {
-        return funcionarioService.findAllFuncionarios();
-
+    @PostMapping
+    public String salvarFuncionario(@RequestBody @Valid Funcionario funcionario) {
+        return funcionarioService.salvarFuncionario(funcionario);
     }
 
-    @DeleteMapping("/{id}")
-    public String deletaFuncionario(@PathVariable long id){
-        return funcionarioService.deletaFunc(id);
-    }
-
-    @GetMapping("/{id}")
-    public Optional<Funcionario> buscaFuncionario(@PathVariable long id){
-        return funcionarioService.buscaFuncionario(id);
-    }
-
-//    @GetMapping("")
-//    public String homePage() {
-//        return "homePage";
+//    @GetMapping
+//    public List<Funcionario> returnAquisition() {
+//        return null;
+//
 //    }
 
 
-    @PostMapping
-    public String salvaFunc (@RequestBody @Valid Funcionario func) {
-        return funcionarioService.salvaFunc(func);
 
-    }
+
 }
 
 
